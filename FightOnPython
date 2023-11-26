@@ -1,0 +1,353 @@
+import random
+import time
+
+def luta():
+    xp = 0
+    if 0 <= xp < 10:
+        nivel = 1
+        ataque = 5
+        defesa = 2
+        life = 10
+    if 10 <= xp < 30:
+        nivel += 1
+        ataque  = 7
+        defesa = 3
+        life = 13
+    if 30 <= xp < 60:
+        nivel += 1
+        ataque = 10
+        defesa = 4
+        life = 16
+    if 60 <= xp < 100:
+        nivel += 1
+        ataque = 12
+        defesa = 5
+        life = 19
+    if xp >= 100:
+        nivel += 1
+        ataque = 14
+        defesa = 5
+        life = 22
+    while True:
+        d64 = range(65)
+        print("--------------------")
+        print("Status do player")
+        print("Level: ",nivel)
+        print("EXP: ",xp)
+        print("Vida: ",life)
+        print("Ataque: ",ataque)
+        print("Defesa: ", defesa)
+        print("--------------------")
+        print("Voce ve 5 monstros, um goblin, um lobo, uma mantis, um orc e o boss")
+        inimigo = input("Qual monstro deseja lutar?")
+        if inimigo == "goblin":
+            level = 1
+            hp = 5
+            defe = 1
+            atk = 3
+            print("--------------------")
+            print("Status do player")
+            print("Level: ",nivel)
+            print("Vida: ", life)
+            print("Ataque: ", ataque)
+            print("Defesa: ", defesa)
+            print("--------------------")
+            print("Status do monstro")
+            print("Nivel: ",level)
+            print("Vida: ", hp)
+            print("Ataque: ",atk)
+            print("Defesa: ",defe)
+            print("--------------------")
+            time.sleep(1.5)
+            while hp > 0 and life > 0:
+                dado_monstro = random.choice(d64)
+                dado_prota = random.choice(d64)
+                if int(dado_monstro) < int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O goblin tirou um ", dado_monstro)
+                    print("Voce acerta o goblin!")
+                    time.sleep(1)
+                    hp -= ataque - defe
+                    print("Voce deu ",ataque - defe," de dano")
+                    print("Ele agora esta com ", hp, " de vida")
+                    print()
+                if int(dado_monstro) > int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O goblin tirou um ", dado_monstro)
+                    print("O goblin te acertou!")
+                    time.sleep(1)
+                    life -= atk - defesa//2
+                    print("Ele te deu ",atk - defesa//2," de dano")
+                    print("Voce agora esta com ", life, " de vida")
+                    print()
+                if int(dado_monstro) == int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O goblin tirou um ", dado_monstro)
+                    print("Ninguem acertou!")
+                    time.sleep(1)
+                    print()
+            if hp <= 0:
+                time.sleep(1)
+                print("Parabens")
+                print("Voce matou o goblin!")
+                print("-"*20)
+                xp += 5
+            if life <= 0:
+                time.sleep(1)
+                print("Voce morreu!")
+                print("Tente de novo")
+                print("/\\"*20)
+                print()
+                luta()
+        elif inimigo == "lobo":
+            level = 2
+            hp = 10
+            defe = 2
+            atk = 5
+            print("--------------------")
+            print("Status do player")
+            print("Level: ",nivel)
+            print("Vida: ", life)
+            print("Ataque: ", ataque)
+            print("Defesa: ", defesa)
+            print("--------------------")
+            print("Status do monstro")
+            print("Nivel: ",level)
+            print("Vida: ", hp)
+            print("Ataque: ",atk)
+            print("Defesa: ",defe)
+            print("--------------------")
+            time.sleep(1.5)
+            while hp > 0 and life > 0:
+                dado_monstro = random.choice(d64)
+                dado_prota = random.choice(d64)
+                if int(dado_monstro) < int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O lobo tirou um ", dado_monstro)
+                    print("Voce acerta o lobo!")
+                    time.sleep(1)
+                    hp -= ataque - defe
+                    print("Voce deu ",ataque - defe," de dano")
+                    print("Ele agora esta com ", hp, " de vida")
+                    print()
+                if int(dado_monstro) > int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O lobo tirou um ", dado_monstro)
+                    print("O lobo te acertou!")
+                    time.sleep(1)
+                    life -= atk - defesa//2
+                    print("Ele te deu ",atk - defesa//2," de dano")
+                    print("Voce agora esta com ", life, " de vida")
+                    print()
+                if int(dado_monstro) == int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O lobo tirou um ", dado_monstro)
+                    print("Ninguem acertou!")
+                    time.sleep(1)
+                    print()
+            if hp <= 0:
+                time.sleep(1)
+                print("Parabens")
+                print("Voce matou o lobo!")
+                print("-"*20)
+                xp += 10
+            if life <= 0:
+                time.sleep(1)
+                print("Voce morreu!")
+                print("Tente de novo")
+                print("/\\"*20)
+                print()
+                luta()
+        elif inimigo == 'mantis':
+            level = 3
+            hp = 13
+            defe = 3
+            atk = 8
+            print("--------------------")
+            print("Status do player")
+            print("Level: ",nivel)
+            print("Vida: ", life)
+            print("Ataque: ", ataque)
+            print("Defesa: ", defesa)
+            print("--------------------")
+            print("Status do monstro")
+            print("Nivel: ",level)
+            print("Vida: ", hp)
+            print("Ataque: ",atk)
+            print("Defesa: ",defe)
+            print("--------------------")
+            time.sleep(1.5)
+            while hp > 0 and life > 0:
+                dado_monstro = random.choice(d64)
+                dado_prota = random.choice(d64)
+                if int(dado_monstro) < int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("A mantis tirou um ", dado_monstro)
+                    print("Voce acerta a mantis!")
+                    time.sleep(1)
+                    hp -= ataque - defe
+                    print("Voce deu ",ataque - defe," de dano")
+                    print("Ele agora esta com ", hp, " de vida")
+                    print()
+                if int(dado_monstro) < int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("A mantis tirou um ", dado_monstro)
+                    print("A mantis te acertou!")
+                    time.sleep(1)
+                    life -= atk - defesa//2
+                    print("Ele te deu ",atk - defesa//2," de dano")
+                    print("Voce agora esta com ", life, " de vida")
+                    print()
+                if int(dado_monstro) == int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("A mantis tirou um ", dado_monstro)
+                    print("Ninguem acertou!")
+                    time.sleep(1)
+                    print()
+            if hp <= 0:
+                time.sleep(1)
+                print("Parabens")
+                print("Voce matou a mantis!")
+                print("-"*20)
+                xp += 15
+            if life <= 0:
+                time.sleep(1)
+                print("Voce morreu!")
+                print("Tente de novo")
+                print("/\\"*20)
+                print()
+                luta()
+        elif inimigo == 'orc':
+            level = 4
+            hp = 18
+            defe = 5
+            atk = 10
+            print("--------------------")
+            print("Status do player")
+            print("Level: ",nivel)
+            print("Vida: ", life)
+            print("Ataque: ", ataque)
+            print("Defesa: ", defesa)
+            print("--------------------")
+            print("Status do monstro")
+            print("Nivel: ",level)
+            print("Vida: ", hp)
+            print("Ataque: ",atk)
+            print("Defesa: ",defe)
+            print("--------------------")
+            time.sleep(1.5)
+            while hp > 0 and life > 0:
+                dado_monstro = random.choice(d64)
+                dado_prota = random.choice(d64)
+                if int(dado_monstro) < int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O orc tirou um ", dado_monstro)
+                    print("Voce acerta o orc!")
+                    time.sleep(1)
+                    hp -= ataque - defe
+                    print("Voce deu ",ataque - defe," de dano")
+                    print("Ele agora esta com ", hp, " de vida")
+                    print()
+                if int(dado_monstro) > int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O orc tirou um ", dado_monstro)
+                    print("O orc te acertou!")
+                    time.sleep(1)
+                    life -= atk - defesa//2
+                    print("Ele te deu ",atk - defesa//2," de dano")
+                    print("Voce agora esta com ", life, " de vida")
+                    print()
+                if int(dado_monstro) == int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O orc tirou um ", dado_monstro)
+                    print("Ninguem acertou!")
+                    time.sleep(1)
+                    print()
+            if hp <= 0:
+                time.sleep(1)
+                print("Parabens")
+                print("Voce matou o orc!")
+                print("-"*20)
+                xp += 20
+            if life <= 0:
+                time.sleep(1)
+                print("Voce morreu!")
+                print("Tente de novo")
+                print("/\\"*20)
+                xp -= 10
+                luta()
+        elif inimigo == 'boss':
+            level = 5
+            hp = 25
+            defe = 6
+            atk = 15
+            print("---------------------")
+            print("Status do player")
+            print("Level: ",nivel)
+            print("Vida: ", life)
+            print("Ataque: ", ataque)
+            print("Defesa: ", defesa)
+            print("---------------------")
+            print("Status do monstro")
+            print("Nivel: ",level)
+            print("Vida: ", hp)
+            print("Ataque: ",atk)
+            print("Defesa: ",defe)
+            print("---------------------")
+            time.sleep(1.5)
+            while hp > 0 and life > 0:
+                dado_monstro = random.choice(d64)
+                dado_prota = random.choice(d64)
+                if int(dado_monstro) < int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O boss tirou um ", dado_monstro)
+                    print("Voce avanca no boss desviando do seu ataque e ja contra-atacando !")
+                    time.sleep(1)
+                    hp -= ataque - defe
+                    print("Voce deu ",ataque - defe," de dano")
+                    print("Ele agora esta com ", hp, " de life")
+                    print()
+                if int(dado_monstro) > int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O boss tirou um ", dado_monstro)
+                    print("O boss te acerta um um ataque lateral e voce sai voando pela sala")
+                    time.sleep(1)
+                    life -= atk - defesa//2
+                    print("Ele te deu ",atk - defesa//2," de dano")
+                    print("Voce agora esta com ", life, " de vida")
+                    print()
+                if int(dado_monstro) == int(dado_prota) :
+                    print()
+                    print("Voce tirou um ", dado_prota)
+                    print("O boss tirou um ", dado_monstro)
+                    print("O boss fez um ataque cruzado e voce consegue escapar com um step back!")
+                    time.sleep(1)
+                    print()
+            if hp <= 0:
+                time.sleep(1)
+                print("Parabens")
+                print("Voce matou o boss!")
+                print("-"*20)
+                xp += 25
+            if life <= 0:
+                time.sleep(1)
+                print("Voce morreu!")
+                print("Tente de novo")
+                print("/\\"*20)
+                luta()
+
+luta()
